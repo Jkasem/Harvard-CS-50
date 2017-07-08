@@ -6,30 +6,30 @@ Harvard's CS50 found here:
 
     Problem Set 0
       Scratch
-      Scratch
+        Scratch
     Problem Set 1
       C
-      C
+        C
     Problem Set 2
       Crypto
-      C
+        C
     Problem Set 3
       Game of Fifteen
-      C
+        C
     Problem Set 4
       Forensics
-      C
+        C
     Problem Set 5
       Misspellings
-      C
+        C
     Problem Set 6
       Sentimental
-      Python
+        Python
     Problem Set 7
       C$50 Finance
-      Python, SQL
+        Python, SQL
     Problem Set 8
       Mashup
-      JavaScript
+        JavaScript
 
 My Solutions will all be written in ES6Script as to practice JavaScript
