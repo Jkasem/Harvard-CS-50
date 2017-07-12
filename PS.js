@@ -92,23 +92,89 @@ let q = 0
   Implement a program that encrypts messages using Caesar’s cipher */
   function initCaeser(){
 
-    let encryptKey = prompt("Enter encryption key");
+    let encryptKey = prompt("Enter a integer encryption key");
     encryptKey;
     if (encryptKey > 0) {
-      let inputMessage = prompt("Enter message to encrypt");
-      inputMessage;
-      encryptMessage(inputMessage);
+      let encryptStr = prompt("Enter message to encrypt");
+      encryptStr;
+      encryptMessage(encryptStr, encryptKey);
     } else {
-      console.log("Enter a positive integer");
+      console.log("Enter a positive integer!");
       return 1;
     }
 
-    function encryptMessage(){
-      
-    }
+    function encryptMessage(str, k){
+      let output = " ";
 
+      for ( let i = 0; i < str.length; i ++) {
+        let char = str[i];
+        if (char.match(/[a-z]/i)) {
+          let code = str.charCodeAt(i);
+
+          if ((code >= 65) && (code <= 90)) {
+            char = String.fromCharCode(((code - 65 + k) % 26) + 65);
+          } else if ((code >= 97) && (code <= 122)) {
+              char = String.fromCharCode(((code - 97 + k) % 26) + 97);
+            }
+        }
+        output += char;
+      }
+      alert(output);
+    }
   }
 
   /* Vigenere
   Implement a program that encrypts messages using Vigenère’s cipher */
-  //  function initVigenere
+  function initVigenere(){
+
+    function getInput(){
+      let regex = /[^a-zA-Z]/;
+      let encryptKey = prompt("Enter a string encryption key");
+      encryptKey;
+      if (regex.test(encryptKey)) {
+        console.log("Enter a string key!");
+        return 1;
+      } else {
+        let encryptStr = prompt("Enter message to encrypt");
+        encryptStr;
+        encryptMessage(encryptStr, encryptKey);
+      }
+    }
+
+    function encryptMessage(str, k){
+      let output = " ";
+      let n = -1;
+      let key = [];
+      let kLower = k.toUpperCase();
+
+      for (i = 0; i < kLower.length; i++) {
+        key.push((kLower.charCodeAt(i) - 65));
+      }
+
+      function keyLoop() {
+        if (n < key.length - 1) {
+          n++;
+          return n;
+        } else
+          n = 0;
+          return n;
+      };
+
+      for ( let i = 0; i < str.length; i ++) {
+        let char = str[i];
+        if (char.match(/[a-z]/i)) {
+          let code = str.charCodeAt(i);
+
+          if ((code >= 65) && (code <= 90)) {
+            char = String.fromCharCode(((code - 65 + key[keyLoop()]) % 26) + 65);
+          } else if ((code >= 97) && (code <= 122)) {
+              char = String.fromCharCode(((code - 97 + key[keyLoop()]) % 26) + 97);
+            }
+        }
+        output += char;
+      }
+      alert(output);
+    }
+
+    getInput();
+}
