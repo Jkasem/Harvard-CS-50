@@ -178,3 +178,11 @@ let q = 0
 
     getInput();
 }
+
+//************PS3***************
+/* Find
+ Implement a program that finds a number among numbers */
+
+
+/* Game of Fifteen
+Implement the Game of Fifteen*/
